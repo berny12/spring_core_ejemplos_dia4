@@ -2,6 +2,7 @@ package com.synergyj.cursos.spring.pruebas;
 
 import java.lang.reflect.Method;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,10 +16,12 @@ public class AfterReturnAdviceTestCase implements AfterReturningAdvice {
 	/**
 	 * Logger para todas las instancias de la clase
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(AfterReturnAdviceTestCase.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(AfterReturnAdviceTestCase.class);
 
 	/**
-	 * Muestra el uso de un {@link AfterReturningAdvice} implementado por esta misma clase.
+	 * Muestra el uso de un {@link AfterReturningAdvice} implementado por esta
+	 * misma clase.
 	 */
 	@Test
 	public void afterReturn() {
@@ -37,17 +40,22 @@ public class AfterReturnAdviceTestCase implements AfterReturningAdvice {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.springframework.aop.AfterReturningAdvice#afterReturning(java.lang.Object,
-	 * java.lang.reflect.Method, java.lang.Object[], java.lang.Object)
+	 * 
+	 * @see
+	 * org.springframework.aop.AfterReturningAdvice#afterReturning(java.lang
+	 * .Object, java.lang.reflect.Method, java.lang.Object[], java.lang.Object)
 	 */
-	public void afterReturning(Object returnValue, Method method, Object[] args, Object target)
-			throws Throwable {
+	@Override
+	public void afterReturning(Object returnValue, Method method,
+			Object[] args, Object target) throws Throwable {
 		logger.debug("Despues del mŽetodo: {} ", method.getName());
 		logger.debug("se obtuvo el siguiente resultado: {} ", returnValue);
 
-		// TODO C) escribir un Assert que compruebe que el valor de la variable returnValue es igual
-		// al invocar directamente al métrodo getSaludo empleando la variable target.
-
+		// TODO C) escribir un Assert que compruebe que el valor de la variable
+		// returnValue es igual
+		// al invocar directamente al métrodo getSaludo empleando la variable
+		// target.
+		Assert.assertEquals("Hola SynergyJ", returnValue);
 	}
 
 }

@@ -24,10 +24,12 @@ public class BeforeAdviceTestCase implements MethodBeforeAdvice {
 	/**
 	 * Logger para todas las instancias de la clase
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(BeforeAdviceTestCase.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(BeforeAdviceTestCase.class);
 
 	/**
-	 * Muestra el uso de un {@link MethodBeforeAdvice} implementado por esta misma clase.
+	 * Muestra el uso de un {@link MethodBeforeAdvice} implementado por esta
+	 * misma clase.
 	 */
 	@Test
 	public void beforeAdvice() {
@@ -42,21 +44,27 @@ public class BeforeAdviceTestCase implements MethodBeforeAdvice {
 		pf.setTarget(target);
 
 		// TODO A) inicializar la variable proxy
+		proxy = (SaludaService) pf.getProxy();
 
 		saludo = proxy.getSaludo("SynergyJ");
 
-		// TODO B) Completar el assert que valide el valor de la variable saludo. ¿ Por qué es
+		// TODO B) Completar el assert que valide el valor de la variable
+		// saludo. ¿ Por qué es
 		// totalmente diferente al valor del argumento ?
-		Assert.assertEquals("<poner valor aqui>", saludo);
+		Assert.assertEquals("Hola Otra empresa", saludo);
 		logger.debug("{}", saludo);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.springframework.aop.MethodBeforeAdvice#before(java.lang.reflect.Method,
-	 * java.lang.Object[], java.lang.Object)
+	 * 
+	 * @see
+	 * org.springframework.aop.MethodBeforeAdvice#before(java.lang.reflect.Method
+	 * , java.lang.Object[], java.lang.Object)
 	 */
-	public void before(Method method, Object[] args, Object target) throws Throwable {
+	@Override
+	public void before(Method method, Object[] args, Object target)
+			throws Throwable {
 
 		logger.debug("Antes de invocar, #Parametros: {}", args.length);
 		Assert.assertEquals(1, args.length);
