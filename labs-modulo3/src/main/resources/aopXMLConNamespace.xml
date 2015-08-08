@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
+
+	<!-- definición del advice -->
+	<bean id="validadorAdvice" class="com.synergyj.cursos.spring.advice.ValidadorAspectJBeforeAdvice" />
+
+	<!-- definicion de target object, este método no valida nulos, se debe emplear AOP para hacerlo. -->
+	<bean id="tarjetaCreditoService" class="com.synergyj.cursos.spring.service.impl.TarjetaCreditoServiceImpl" />
+
+	<!-- aqui se declara el aspecto, pueden existir varios <aop:config> por aplicación -->
+	
+	<!-- TODO B) Completar el valor de los atributos ref y method  al terminar checar las flechas que dibuja el editor.-->
+	<aop:config>
+		<aop:aspect id="beforeExample" ref="--poner valor aqui--">
+			<aop:before pointcut="execution(* com.synergyj..*Service+.*(..))" method="--poner valor aqui--" />
+		</aop:aspect>
+	</aop:config>
+	
+	<!-- TODO C) Despues de ejecutar la prueba, comentar aop:config y agregar una nueva pero ahora empleando un advisor. -->
+	
+
+</beans>
