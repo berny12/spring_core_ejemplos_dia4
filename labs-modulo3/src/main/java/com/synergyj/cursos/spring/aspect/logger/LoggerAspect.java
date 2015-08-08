@@ -23,6 +23,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author Jorge Rodríguez Campos (jorge.rodriguez@synergyj.com)
  */
+
 // TODO B) Anotar adicionalmente con @Aspect
 @Aspect
 @Component
@@ -31,12 +32,14 @@ public class LoggerAspect {
 	/**
 	 * Logger para todas las instancias de la clase
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(LoggerAspect.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(LoggerAspect.class);
 
 	/**
 	 * Definición del pointcut.
 	 */
-	// TODO B) agregar una expresión que marque a todos los métodos del servicio CalculadoraService
+	// TODO B) agregar una expresión que marque a todos los métodos del servicio
+	// CalculadoraService
 	@Pointcut("<poner expresion aqui>")
 	private void loggerPointcut() {
 	}
@@ -44,7 +47,8 @@ public class LoggerAspect {
 	/**
 	 * @param joinPoint
 	 */
-	// TODO C) Asociar a este advice el pointcut anterior empleando su firma, no emplear su
+	// TODO C) Asociar a este advice el pointcut anterior empleando su firma, no
+	// emplear su
 	// expresión.
 	@Before("<poner firma del poincut aqui>")
 	public void beforeAdvice(JoinPoint joinPoint) {
@@ -61,8 +65,10 @@ public class LoggerAspect {
 	 * @param valorRetorno
 	 */
 
-	// TODO D) Asociar a este advice el mismo pointcut, pero ahora empleando su expresión.
-	// TODO E) ¿Qué cambio se debe hacer para que se invoque este advice al invocar le método
+	// TODO D) Asociar a este advice el mismo pointcut, pero ahora empleando su
+	// expresión.
+	// TODO E) ¿Qué cambio se debe hacer para que se invoque este advice al
+	// invocar le método
 	// fechaActual del servicio CalculadoraService ?
 	@AfterReturning(pointcut = "<poner expresion aqui>", returning = "valorRetorno")
 	public void afterReturningAdvice(Double valorRetorno) {

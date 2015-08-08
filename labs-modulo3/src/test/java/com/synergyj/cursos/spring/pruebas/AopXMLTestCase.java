@@ -22,7 +22,8 @@ import com.synergyj.cursos.spring.service.TarjetaCreditoService;
  * @author Jorge Rodríguez Campos (jorge.rodriguez@synergyj.com)
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-// Probar con aopXmlSinNamespace.xml y después con aopXmlConNamespace.xml, revisar archivos.
+// Probar con aopXmlSinNamespace.xml y después con aopXmlConNamespace.xml,
+// revisar archivos.
 // @ContextConfiguration("/aopXmlSinNamespace.xml")
 // @ContextConfiguration("/aopXmlConNamespace.xml")
 public class AopXMLTestCase {
@@ -33,7 +34,8 @@ public class AopXMLTestCase {
 	/**
 	 * Logger para todas las instancias de la clase
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(AopXMLTestCase.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(AopXMLTestCase.class);
 
 	@Test(expected = IllegalArgumentException.class)
 	public void aplicaCargoConNulls() {

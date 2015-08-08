@@ -1,8 +1,8 @@
 package com.synergyj.cursos.spring.service.seguridad;
 
-
 /**
- * Clase empleada para simular un servcio de seguridad empleando un {@link ThreadLocal}
+ * Clase empleada para simular un servcio de seguridad empleando un
+ * {@link ThreadLocal}
  */
 public class LoginService {
 

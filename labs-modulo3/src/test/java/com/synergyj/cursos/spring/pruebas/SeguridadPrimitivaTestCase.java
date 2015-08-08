@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.aop.framework.ProxyFactory;
 
 import com.synergyj.cursos.spring.advice.SeguridadAdvice;
+import com.synergyj.cursos.spring.service.seguridad.LoginService;
 import com.synergyj.cursos.spring.service.seguridad.ServicioSeguro;
 
 public class SeguridadPrimitivaTestCase {
@@ -13,31 +14,38 @@ public class SeguridadPrimitivaTestCase {
 	/**
 	 * Logger para todas las instancias de la clase
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(SeguridadPrimitivaTestCase.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(SeguridadPrimitivaTestCase.class);
 
 	@Test
 	public void sinSeguridad() {
-		// Observar que no hay seguridad aquí, metodoSeguro se invoca sin nunguna autenticación
+		// Observar que no hay seguridad aquí, metodoSeguro se invoca sin
+		// nunguna autenticación
 		ServicioSeguro servicioSeguro = new ServicioSeguro();
 		servicioSeguro.metodoSeguro();
 	}
 
-	// TODO A) En este caso observar como se puede volver seguro a un método sin alterar una sóla
-	// línea de código en la clase ServicioSeguro. Revusar el método getServicioSeguro. Ahora el
-	// test case debe esperar una excepcion para que sea exitosa. Revisar SeguridadAdvice y
+	// TODO A) En este caso observar como se puede volver seguro a un método sin
+	// alterar una sóla
+	// línea de código en la clase ServicioSeguro. Revusar el método
+	// getServicioSeguro. Ahora el
+	// test case debe esperar una excepcion para que sea exitosa. Revisar
+	// SeguridadAdvice y
 	// completar el tag @Test.
-	@Test
+	@Test(expected = SecurityException.class)
 	public void conSeguridadSinLogin() {
 		ServicioSeguro servicioSeguro = getServicioSeguro();
 		servicioSeguro.metodoSeguro();
 	}
 
-	@Test
+	@Test(expected = SecurityException.class)
 	public void conSeguridadConUsuarioInvalido() {
 
-		// TODO B) Hacer login para intentar ejecutar metodoSegurto, pero proporcionar un usuario y
+		// TODO B) Hacer login para intentar ejecutar metodoSegurto, pero
+		// proporcionar un usuario y
 		// password inexistente. Completar @Test para que sea exitosa.
-
+		LoginService loginService = new LoginService();
+		loginService.login("no existo", "0000");
 		ServicioSeguro servicioSeguro = getServicioSeguro();
 		servicioSeguro.metodoSeguro();
 	}
@@ -45,13 +53,15 @@ public class SeguridadPrimitivaTestCase {
 	@Test
 	public void conSeguridadUsuarioValido() {
 		// TODO C) Mismo caso pero ahora indicar usuario y password validos
-
+		LoginService loginService = new LoginService();
+		loginService.login("admin", "password");
 		ServicioSeguro servicioSeguro = getServicioSeguro();
 		servicioSeguro.metodoSeguro();
 	}
 
 	/**
 	 * APlicando seguridad a una clase a través de AOP.
+	 * 
 	 * @return
 	 */
 	private static ServicioSeguro getServicioSeguro() {

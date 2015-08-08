@@ -19,17 +19,22 @@ import com.synergyj.cursos.spring.service.TarjetaCreditoService;
 public class TarjetaCreditoServiceImpl implements TarjetaCreditoService {
 
 	/**
+	 * 
 	 * Logger para todas las instancias de la clase
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(TarjetaCreditoServiceImpl.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(TarjetaCreditoServiceImpl.class);
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.synergyj.cursos.spring.service.TarjetaCreditoService#aplicaCargo(java.lang.String,
-	 * java.lang.String, java.lang.String)
+	 * 
+	 * @see
+	 * com.synergyj.cursos.spring.service.TarjetaCreditoService#aplicaCargo(
+	 * java.lang.String, java.lang.String, java.lang.String)
 	 */
 	@Override
-	public void aplicaCargo(String numeroTarjeta, String vencimiento, String numSeguridad) {
+	public void aplicaCargo(String numeroTarjeta, String vencimiento,
+			String numSeguridad) {
 		logger.debug("Aplicando un cargo a la tarjeta.");
 		logger.debug("Los argumentos no deben ser nulos, se emplea un validador con AOP"
 				+ " para asegurar que no lleguen nulos.");

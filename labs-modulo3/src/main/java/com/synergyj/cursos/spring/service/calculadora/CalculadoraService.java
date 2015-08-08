@@ -16,18 +16,22 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
- * Esta clase simula un servicio de negocio, se desea monitoreas los valores de los parámetros y de
- * los valores de retorno a través del uso de un aspecto. Lo importante en estos métodos no es lo
- * que hacen sino lo que reciben y el valor de retorno.
+ * Esta clase simula un servicio de negocio, se desea monitoreas los valores de
+ * los parámetros y de los valores de retorno a través del uso de un aspecto. Lo
+ * importante en estos métodos no es lo que hacen sino lo que reciben y el valor
+ * de retorno.
+ * 
  * @author Jorge Rodríguez Campos (jorge.rodriguez@synergyj.com)
  */
+
 @Service("calculadoraService")
 public class CalculadoraService {
 
 	/**
 	 * Logger para todas las instancias de la clase
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(CalculadoraService.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(CalculadoraService.class);
 
 	/**
 	 * @param op1
