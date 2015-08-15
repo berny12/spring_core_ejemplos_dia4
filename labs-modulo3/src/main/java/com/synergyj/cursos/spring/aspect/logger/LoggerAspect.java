@@ -40,7 +40,7 @@ public class LoggerAspect {
 	 */
 	// TODO B) agregar una expresión que marque a todos los métodos del servicio
 	// CalculadoraService
-	@Pointcut("<poner expresion aqui>")
+	@Pointcut("execution(* com.synergyj.cursos.spring.service.calculadora.CalculadoraService.*(..))")
 	private void loggerPointcut() {
 	}
 
@@ -50,7 +50,7 @@ public class LoggerAspect {
 	// TODO C) Asociar a este advice el pointcut anterior empleando su firma, no
 	// emplear su
 	// expresión.
-	@Before("<poner firma del poincut aqui>")
+	@Before(" com.synergyj.cursos.spring.aspect.logger.LoggerAspect.loggerPointcut()")
 	public void beforeAdvice(JoinPoint joinPoint) {
 
 		logger.debug(" En beforeAdvice, argumentos:");
@@ -70,8 +70,8 @@ public class LoggerAspect {
 	// TODO E) ¿Qué cambio se debe hacer para que se invoque este advice al
 	// invocar le método
 	// fechaActual del servicio CalculadoraService ?
-	@AfterReturning(pointcut = "<poner expresion aqui>", returning = "valorRetorno")
-	public void afterReturningAdvice(Double valorRetorno) {
+	@AfterReturning(pointcut = "execution(* com.synergyj.cursos.spring.service.calculadora.CalculadoraService.*(..))", returning = "valorRetorno")
+	public void afterReturningAdvice(Object valorRetorno) {
 		logger.debug("En afterReturningAdvice ");
 		logger.debug("imprimiendo el valor de retorno {}", valorRetorno);
 
