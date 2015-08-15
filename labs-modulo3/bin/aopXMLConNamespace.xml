@@ -13,13 +13,24 @@
 	<!-- aqui se declara el aspecto, pueden existir varios <aop:config> por aplicación -->
 	
 	<!-- TODO B) Completar el valor de los atributos ref y method  al terminar checar las flechas que dibuja el editor.-->
+	<!-- 
 	<aop:config>
 		<aop:aspect id="beforeExample" ref="validadorAdvice">
 			<aop:before pointcut="execution(* com.synergyj..*Service+.*(..))" method="validaParametros" />
 		</aop:aspect>
 	</aop:config>
-	
+	-->
 	<!-- TODO C) Despues de ejecutar la prueba, comentar aop:config y agregar una nueva pero ahora empleando un advisor. -->
 	
+	<!-- se agrega la clase que implementa los metodos beforeAdvice  de spring-->
+	<bean id="validadorSpringAOP" 
+		class="com.synergyj.cursos.spring.advice.ValidadorSpringAOPBeforeAdvice"/>
+		
+	<aop:config>
+		<!-- se define el pointcout -->
+		<aop:pointcut expression="execution(* com.synergyj..*Service+.*(..))" id="pointcut"/>
+		<aop:advisor advice-ref="validadorSpringAOP" pointcut-ref="pointcut"/>
+	
+	</aop:config>
 
 </beans>
