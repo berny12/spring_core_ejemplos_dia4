@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.synergyj.cursos.spring.service.TarjetaCreditoService;
@@ -24,7 +25,7 @@ import com.synergyj.cursos.spring.service.TarjetaCreditoService;
 @RunWith(SpringJUnit4ClassRunner.class)
 // Probar con aopXmlSinNamespace.xml y después con aopXmlConNamespace.xml,
 // revisar archivos.
-// @ContextConfiguration("/aopXmlSinNamespace.xml")
+@ContextConfiguration("/aopXmlSinNamespace.xml")
 // @ContextConfiguration("/aopXmlConNamespace.xml")
 public class AopXMLTestCase {
 
