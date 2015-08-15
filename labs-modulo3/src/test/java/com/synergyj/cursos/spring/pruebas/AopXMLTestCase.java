@@ -25,8 +25,8 @@ import com.synergyj.cursos.spring.service.TarjetaCreditoService;
 @RunWith(SpringJUnit4ClassRunner.class)
 // Probar con aopXmlSinNamespace.xml y después con aopXmlConNamespace.xml,
 // revisar archivos.
-@ContextConfiguration("/aopXmlSinNamespace.xml")
-// @ContextConfiguration("/aopXmlConNamespace.xml")
+// @ContextConfiguration("/aopXmlSinNamespace.xml")
+@ContextConfiguration("/aopXmlConNamespace.xml")
 public class AopXMLTestCase {
 
 	@Resource

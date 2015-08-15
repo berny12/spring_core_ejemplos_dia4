@@ -14,8 +14,8 @@
 	
 	<!-- TODO B) Completar el valor de los atributos ref y method  al terminar checar las flechas que dibuja el editor.-->
 	<aop:config>
-		<aop:aspect id="beforeExample" ref="--poner valor aqui--">
-			<aop:before pointcut="execution(* com.synergyj..*Service+.*(..))" method="--poner valor aqui--" />
+		<aop:aspect id="beforeExample" ref="validadorAdvice">
+			<aop:before pointcut="execution(* com.synergyj..*Service+.*(..))" method="validaParametros" />
 		</aop:aspect>
 	</aop:config>
 	
